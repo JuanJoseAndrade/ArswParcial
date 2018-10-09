@@ -32,8 +32,10 @@
          
 
           <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="658" height="277" style="display: block; width: 658px; height: 277px;"></canvas>
+		  <input id="AddOrder" type="button" value="Add Order id" onclick="OrdersControllerModule.createOrder(orderIdPost.value);" />
+		  <input type="number" id="orderIdPost" >
 		  <input id="LoadOrders" type="button" value="LoadOrders" onclick="OrdersControllerModule.getOrders();" />
-		  <input id="Eliminar" type="button" value=" Delete table ↓" onclick="OrdersControllerModule.deleteOrder(orderId.value);" />
+		  <input id="Eliminar" type="button" value=" Delete Order id" onclick="OrdersControllerModule.deleteOrder(orderId.value);" />
 		  <input type="number" id="orderId">
           <h2>ORDERS </h2>
           <div id="cuerpoDeTablas">

@@ -116,6 +116,7 @@ var createOrder = function (orderId) {
 
   return {
 	deleteOrder: deleteOrder,
+	createOrder:createOrder,
     getOrders: getOrders,
     updateOrder: updateOrder,
     deleteOrderItem: deleteOrderItem,
