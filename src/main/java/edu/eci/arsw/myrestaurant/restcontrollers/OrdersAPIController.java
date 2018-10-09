@@ -30,6 +30,7 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static org.aspectj.weaver.tools.cache.SimpleCacheFactory.path;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
@@ -113,11 +114,11 @@ import org.springframework.web.bind.annotation.RestController;
 		}        
 	
 	}
-       // Ejemplo para hacer delete curl -i -X DELETE -HContent-Type:application/json -HAccept:application/json http://localhost:8080/orders -d 2
-        @RequestMapping(method = RequestMethod.DELETE)	
-	public ResponseEntity<?> manejadorDeleteOrder(@RequestBody int numOrder){
+        
+        @RequestMapping(method = RequestMethod.DELETE, value = "/{numOrder}")
+	public ResponseEntity<?> manejadorDeleteOrder(@PathVariable String numOrder){
 		try {
-			restaurantorderservices.releaseTable(numOrder);
+			restaurantorderservices.releaseTable(Integer.parseInt(numOrder));
 			return new ResponseEntity<>(HttpStatus.ACCEPTED);
 		} catch (Exception ex) {
 			Logger.getLogger(OrdersAPIController.class.getName()).log(Level.SEVERE, null, ex);
@@ -125,7 +126,6 @@ import org.springframework.web.bind.annotation.RestController;
 		}        
 	
 	}
-        @GetMapping("/{id}")
         @RequestMapping(method = RequestMethod.DELETE)	
 	public ResponseEntity<?> manejadorDeleteProduct(@RequestBody Order order){
 		try {
@@ -135,9 +135,7 @@ import org.springframework.web.bind.annotation.RestController;
 			Logger.getLogger(OrdersAPIController.class.getName()).log(Level.SEVERE, null, ex);
 			return new ResponseEntity<>("El producto o la orden no existe",HttpStatus.FORBIDDEN);            
 		}        
-	
 	}
-}
-        
+}       
  
 

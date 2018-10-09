@@ -20,8 +20,9 @@ public class Order {
     private int tableNumber;
 
     public Order() {
-    }    
-    
+    }
+   
+  
     public Order(int tableNumber) {
         orderAmountsMap = new ConcurrentHashMap<>();
         this.tableNumber = tableNumber;

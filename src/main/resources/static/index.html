@@ -32,8 +32,8 @@
          
 
           <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="658" height="277" style="display: block; width: 658px; height: 277px;"></canvas>
-		  <input id="LoadOrders" type="button" value="LoadOrders" onclick="getOrders();" />
-		  <input id="Eliminar" type="button" value=" Delete table ↓" onclick="removeOrderById(orderId.value);" />
+		  <input id="LoadOrders" type="button" value="LoadOrders" onclick="OrdersControllerModule.getOrders();" />
+		  <input id="Eliminar" type="button" value=" Delete table ↓" onclick="OrdersControllerModule.deleteOrder(orderId.value);" />
 		  <input type="number" id="orderId">
           <h2>ORDERS </h2>
           <div id="cuerpoDeTablas">
@@ -49,6 +49,7 @@
     </div>
 
 	<script src="js/OrdersController.js"></script>
+	<script src="js/RestaurantRestController.js"></script>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

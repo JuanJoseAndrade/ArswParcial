@@ -9,6 +9,8 @@ import java.util.Collection;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -58,6 +60,13 @@ public class RestaurantOrderServicesStub implements RestaurantOrderServices {
         for (String key : productos) {
             ordenAntigua.deleteProduct(key);
             }
+        if (ordenAntigua.getOrderAmountsMap().size()==0){
+            try {
+                releaseTable(newOrder.getTableNumber());
+            } catch (OrderServicesException ex) {
+                Logger.getLogger(RestaurantOrderServicesStub.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
     @Override
     public RestaurantProduct getProductByName(String product) throws OrderServicesException {
