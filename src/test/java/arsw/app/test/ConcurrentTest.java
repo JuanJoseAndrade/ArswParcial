@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.eci.arsw.myrestaurant.model;
+package arsw.app.test;
 
 /**
  *
- * @author hcadavid
+ * @author 2107990
  */
-public enum ProductType {
-    DISH,DRINK;
+
+public class ConcurrentTest {
+    
 }

@@ -1,65 +1,93 @@
-<!DOCTYPE html>
-<!-- saved from url=(0050)https://getbootstrap.com/docs/4.0/examples/cover/# -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="https://getbootstrap.com/favicon.ico">
+<!DOCTYPE HTML>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Juan Andrade Test</title>
 
-    <title> ARSW LAB 4</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="./Cover_files/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
-    <link href="./Cover_files/cover.css" rel="stylesheet">
-  </head>
+	</head>
+	<body>
 
-  <body class="text-center">
-	<body onload="OrdersControllerModule.getOrders()">
-    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
-      <header class="masthead mb-auto">
-        <div class="inner">
-          <h3 class="masthead-brand">Restaurant App Arsw</h3>
-          <nav class="nav nav-masthead justify-content-center">
-            <a class="nav-link active" href= "/UpdateOrder.html" onClick="" >Update Orders</a>
-        
-          </nav>
-        </div>
-      </header>
-	  
-      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4"><div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
-         
 
-          <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="658" height="277" style="display: block; width: 658px; height: 277px;"></canvas>
-		  <input id="AddOrder" type="button" value="Add Order id" onclick="OrdersControllerModule.createOrder(orderIdPost.value);" />
-		  <input type="number" id="orderIdPost" >
-		  <input id="Eliminar" type="button" value=" Delete Order id" onclick="OrdersControllerModule.deleteOrder(orderId.value);" />
-		  <input type="number" id="orderId">
-          <h2>ORDERS </h2>
-          <div id="cuerpoDeTablas">
-          </div>
+	<div id="page">
 		
-        </main>
 
-      <footer class="mastfoot mt-auto">
-        <div class="inner">
-          <p>Cover template for ARSW</a>, by JuanJo</a>.</p>
-        </div>
-      </footer>
-    </div>
+	<header id="fh5co-header" class="fh5co-cover fh5co-cover-sm" role="banner" style="background-image:url(images/hoja.jpg);">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2 text-center">
+					<div class="display-t">
+						<div class="display-tc animate-box" data-animate-effect="fadeIn">
+							<h1>Temperature Converter</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
 
-	<script src="js/OrdersController.js"></script>
-	<script src="js/RestaurantRestController.js"></script>
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="./Cover_files/jquery-3.2.1.slim.min.js.descarga" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="./Cover_files/popper.min.js.descarga"></script>
-    <script src="./Cover_files/bootstrap.min.js.descarga"></script>
+	<div id="fh5co-contact">
+		<div class="container">
+
+				<div class="col-md-8 animate-box">
+					<h3>Temperature Calculator celsius- fahrenheit</h3>
+					<form name="addProduct" >
+						<div class="row form-group">
+							<div class="col-md-6">
+								<!-- <label for="fname">First Name</label> -->
+								<input type="text" id="gradost" class="form-control" placeholder="Cantidad de grados">
+							</div>
+							<div class="col-md-6">
+								<!-- <label for="lname">Last Name</label> -->
+								<input type="number" id="unidad" class="form-control" placeholder="Unidad a la que se quiere convertir celsius o fahrenheit">
+							</div>
+						</div>
+
+
+
+            </div>
+
+            <div class="row form-group">
+            <div class="col-md-6">
+              <!-- <label for="lname">Last Name</label> -->
+              <input type="button" value="Convertir" class="btn btn-primary" onclick="OrdersControllerModule.getTemperature(gradost.value,unidad.value)" >
+            </div>
+            </div>
+						</div>
+					</form>
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+	</div>
+
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+	</div>
+  <!-- Stop default form -->
+	<!-- Controllers -->
+	<script src="js/RestController.js"></script>
+	<script src="js/ShopController.js"></script>
+	<!-- jQuery -->
+	<script src="js/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="js/jquery.easing.1.3.js"></script>
+
+	<script src="js/jquery.waypoints.min.js"></script>
+	<!-- Carousel -->
+	<script src="js/owl.carousel.min.js"></script>
+	<!-- countTo -->
+	<script src="js/jquery.countTo.js"></script>
+	<!-- Flexslider -->
+	<script src="js/jquery.flexslider-min.js"></script>
+	<!-- Main -->
+	<script src="js/main.js"></script>
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  
 
-</body></html>
+	</body>
+</html>
