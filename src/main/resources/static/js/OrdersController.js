@@ -17,22 +17,26 @@ var OrdersControllerModule = (function () {
 	}
 	};
 //------------------Metodos Get---------------
-  var getOrders = function () {
+  var getTemperature = function (grados,unidad) {
+
     var callback = {
-		
         onSuccess: function(ordersList){
-			document.getElementById("cuerpoDeTablas").innerHTML = '';
-			for(i in ordersList){
-			loadOrder(ordersList[i],"cuerpoDeTablas");
-			}
-			alert("Los datos se descargaron de manera satisfactoria");
+
+			alert(ordersList);
             },
         onFailed: function(exception){
 		alert(exception);
         alert("There is a problem with our servers load module. We apologize for the inconvince, please try again later");
         }
     }
-    RestControllerModule.getOrders(callback);
+	if(unidad=="celsius"){
+		RestControllerModule.getCelsius(grados,callback);
+	}
+	if(unidad=="Fahrenheit"){
+		RestControllerModule.getFahrenheit(grados,callback);
+	}
+
+	
   };
   var getOrder = function (orderId) {
     
@@ -49,91 +53,7 @@ var OrdersControllerModule = (function () {
     }
     RestControllerModule.getOrder(orderId,callback);
   };
-  var getIds= function (){
-	var callback = {
-		
-        onSuccess: function(ordersList){
-			elemento=document.getElementById("identifiers");
-			elemento.innerHTML = '';
-			for (i in ordersList) {
-				elemento.innerHTML +='<option>';
-				elemento.innerHTML +="<option value='"+i+"'>Order "+ ordersList[i].tableNumber;
-				elemento.innerHTML +='</option>';
-			}
-            },
-        onFailed: function(exception){
-		alert(exception);
-        alert("There is a problem with our servers load module. We apologize for the inconvince, please try again later");
-        }
-    }
-    RestControllerModule.getOrders(callback);
-  };  
-	  
 
-//------------------Metodos Post---------------
-var createOrder = function (orderId) {
-	var newOrder={"orderAmountsMap":{},"tableNumber":orderId}
-    var callback = {
-
-        onSuccess: function(){
-		loadOrder(newOrder,"cuerpoDeTablas");
-		alert("Se agregó la nueva orden");
-            },
-        onFailed: function(exception){
-        alert("Hubo un problema al cargar la orden");
-        }
-    }
-    RestControllerModule.createOrder(newOrder, callback);
-  };
-//------------------Metodos Put---------------
-	
-   var addItemToOrder = function (orderId, itemId,quantity) {
-	var newOrder={"orderAmountsMap":{[itemId]:quantity},"tableNumber":orderId}
-    var callback = {
-        onSuccess: function(){
-		OrdersControllerModule.getOrder(orderId);
-		alert("Se actualizó la orden");
-            },
-        onFailed: function(exception){
-		alert(exception);
-        alert("Hubo un problema al cargar la orden");
-        }
-    }
-    RestControllerModule.updateOrder(newOrder, callback);
-  };
-//------------------Metodos Delete--------------- 
-  var deleteOrder = function (orderId) {
-    
-    var callback = {
-		
-        onSuccess: function(){
-			location.reload();
-            },
-        onFailed: function(exception){
-        alert("Hubo un problema al cargar la orden");
-        }
-    }
-    RestControllerModule.deleteOrder(orderId,callback);
-  }; 
-  
-
-  var deleteOrderItem = function (itemName) {
-	var newOrder={"orderAmountsMap":{itemId:quantity},"tableNumber":orderId}
-    var callback = {
-
-        onSuccess: function(){
-			OrdersControllerModule.getOrder();
-			alert("Se actualizó la orden");
-            },
-        onFailed: function(exception){
-        alert("Hubo un problema al cargar la orden");
-        }	
-    }
-	RestControllerModule.deleteProducts(newOrder,callback);
-  };
-  var updateOrder = function (itemName,quantity) {
-    // todo implement
-  };
  
 
   return {
